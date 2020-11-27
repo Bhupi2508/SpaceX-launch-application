@@ -1,1 +1,48 @@
-<p>root works!</p>
+<div class="container">
+    <h1 class="no-margin ml-sm">SpaceX Launch Programs</h1>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+    <!-- launch data store in dataArray-->
+    <div fxLayout="column" class="inner-launch-item m-xs p-sm margin-top-sm c-fit-width"
+        *ngFor="let dataArray of rocketData">
+        <img mat-card-image src="{{ dataArray.links.mission_patch_small }}" />
+        <h4 class="launch-title no-margin pt-xs c-fit-width">
+
+            <!-- mission name & flight number-->
+            {{ dataArray.mission_name }} #{{ dataArray.flight_number }}
+        </h4>
+
+        <!-- mission Ids-->
+        <h4 class="no-margin pt-xs c-fit-width">Mission Ids:</h4>
+        <li *ngFor="let id of dataArray.mission_id">{{ id }}</li>
+        <div class="d-flex c-fit-width">
+
+            <!-- mission launch year-->
+            <h4 class="no-margin pt-xs c-fit-width">Launch Year:</h4>
+            <p class="no-margin pt-xs pl-xs">
+                {{ dataArray.launch_year }}
+            </p>
+        </div>
+
+        <!-- mission launch success-->
+        <div class="d-flex c-fit-width">
+            <h4 class="no-margin pt-xs c-fit-width">Successful Launch:</h4>
+            <p class="no-margin pt-xs pl-xs">
+                {{ dataArray.launch_success }}
+            </p>
+        </div>
+
+        <!-- mission landing success-->
+        <div class="d-flex c-fit-width">
+            <h4 class="no-margin pt-xs c-fit-width">Successful Landing:</h4>
+            <p class="no-margin pt-xs pl-xs">
+                {{ dataArray.rocket.first_stage.cores[0].land_success }}
+            </p>
+        </div>
+    </div>
+
+    <div>n new div</div>
+</div>
+<!-- </div> -->

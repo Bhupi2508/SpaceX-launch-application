@@ -16,3 +16,8 @@ Ensure local installation of following software/tools:
  ## version 0.0.2
  - Generate module and set as default for application
  - Install @nguniversal/express-engine for ssr
+
+  ## version 0.0.3
+ - Set api url in environment.ts and call from services
+ - Install ng add @angular/material
+ - Send api response to the root component and render on html

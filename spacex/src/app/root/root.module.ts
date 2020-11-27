@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { RootRoutingModule } from './root-routing.module';
 import { RootComponent } from './root.component';
@@ -9,7 +11,9 @@ import { RootComponent } from './root.component';
   declarations: [RootComponent],
   imports: [
     CommonModule,
-    RootRoutingModule
+    RootRoutingModule,
+    MatCardModule,
+    FlexLayoutModule
   ]
 })
 export class RootModule { }
