@@ -1,19 +1,39 @@
+.launchData {
+    // margin-top: 1%;
+    margin-left: -3%;
+    flex-flow: wrap;
+}
+
 .inner-launch-item {
     background: #fff;
+    height: 411px;
+    margin-top: 2%;
   
     img {
-      background: #e8dcdc;
+      background: #DCDCDC;
       width: 14em;
     }
   
     li,
-    p {
+      p {
       color: #98afc7;
     }
   
     .launch-title {
       color: #2b65ec;
     }
+
+    .commonText{
+        color: black;
+    }
+
+    .forDynaimcData{
+        color: #98afc7;
+    }
+  }
+
+  .flex-container {
+    flex-wrap: wrap;
   }
   
   @media screen and (min-width: 700px) {
@@ -26,12 +46,42 @@
     .launch-item {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+}
+
+.main-launch {
+    margin-top: -2%;
+}
+
+.year {
+    margin-top: 18%;
+    margin-right: 65px;
+    width: 40%;
+    background-color: white;
+    color: black;
+    display: flex;
+    height: 27%;
+    margin-left: 22%;
+    flex-flow: wrap;
   }
 
-  @media screen and (min-width: 1441px) {
-    .container {
-      grid-template-columns: 1fr;
-      justify-items: center;
-    }
+.yearConstantData{
+    margin-top: 124%;
+}
+
+.launchBoard {
+    margin-left: 10%;
+    flex-flow: wrap;
+}
+
+.yearLink {
+    display: table-cell;
+    width: 490px;
+    color: black;
+    background-color: lightgreen;
+    width: 1%;
   }
-  
+
+.filterMain {
+    margin-right: 65px;
+    display: flex;
+}

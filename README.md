@@ -21,3 +21,8 @@ Ensure local installation of following software/tools:
  - Set api url in environment.ts and call from services
  - Install ng add @angular/material
  - Send api response to the root component and render on html
+
+   ## version 0.0.4
+ - Create interface for response launch data
+ - Renfer the data on html using LaunchData interfaces
+ - Create a constant file for get the values for Years, landing and launch
