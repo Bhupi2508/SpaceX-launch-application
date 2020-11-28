@@ -50,26 +50,25 @@
 
 .main-launch {
     margin-top: -2%;
+    margin-left: -1%;
 }
 
 .year {
     margin-top: 18%;
-    margin-right: 65px;
-    width: 40%;
     background-color: white;
     color: black;
     display: flex;
     height: 27%;
     margin-left: 22%;
-    flex-flow: wrap;
+    flex-flow: row;
   }
 
-.yearConstantData{
-    margin-top: 124%;
-}
+// .yearConstantData{
+//     margin-top: 124%;
+// }
 
 .launchBoard {
-    margin-left: 10%;
+    margin-left: 7%;
     flex-flow: wrap;
 }
 
@@ -77,11 +76,52 @@
     display: table-cell;
     width: 490px;
     color: black;
-    background-color: lightgreen;
+    background:#A9DFBF;
     width: 1%;
+    cursor: pointer;
+    height: 2.4em;
+    border-radius: 0.3em;
   }
+
+.yearLink:focus {
+    background:green;
+}
 
 .filterMain {
     margin-right: 65px;
     display: flex;
+}
+
+.main {
+    font-weight: bolder;
+}
+  
+.sub-header {
+    border-bottom: 1px solid;
+    justify-self: center;
+    display: flex;
+  }
+
+.filterDataMain {
+    margin-top: auto;
+}
+
+.footer {
+    margin-top: 3%;
+    font-size: unset;
+    margin-bottom: 2%;
+    display: flex;
+}
+
+.developBy {
+    font-weight: bolder;
+}
+
+.launchUndrline {
+    border-bottom:2px solid #DCDCDC;
+}
+
+.filtertxt {
+    font-size: large;
+    font-weight: 600;
 }

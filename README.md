@@ -18,11 +18,14 @@ Ensure local installation of following software/tools:
  - Install @nguniversal/express-engine for ssr
 
   ## version 0.0.3
- - Set api url in environment.ts and call from services
+ - Set API url in environment.ts and call from services
  - Install ng add @angular/material
  - Send api response to the root component and render on html
 
    ## version 0.0.4
  - Create interface for response launch data
- - Renfer the data on html using LaunchData interfaces
+ - Render the data on html using LaunchData interfaces
  - Create a constant file for get the values for Years, landing and launch
+
+    ## version 0.0.5
+ - launch data html updated with footer

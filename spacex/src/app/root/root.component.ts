@@ -12,6 +12,7 @@ export class RootComponent implements OnInit {
 
   constructor(private service: ApiServicesService) { }
 
+  developerName: any = "Bhupendra Singh"
   rocketData: any
   launchList: LaunchData[] = [];
   yearValues: any

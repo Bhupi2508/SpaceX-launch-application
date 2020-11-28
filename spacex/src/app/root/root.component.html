@@ -2,62 +2,70 @@
     <h1 class="main" fxLayoutAlign="start center">SpaceX Launch Programs</h1>
 </div>
 
-<div class="main-launch" fxLayout="row" fxLayoutGap="65px" fxLayoutAlign="center">
+<div class="main-launch" fxLayout="row" fxLayoutAlign="center">
     <div class="filterMain">
         <mat-card class="year">
-            <span>Filters</span>
-            <div fxLayout="column" fxLayoutGap="65px" fxLayoutAlign="center">
-                <div class="yearConstantData" fxLayout="column" fxLayoutGap="50px" fxLayoutAlign=" space-evenlycenter"
+            <span class="filtertxt">Filters</span>
+            <div class="sub-header" fxLayoutAlign="space-around center"><label class="launchUndrline">Launch
+                    Year</label></div>
+            <div class="filterDataMain" fxLayout="column">
+                <div class="yearConstantData" fxLayout="column" fxLayoutAlign="space-evenlycenter"
                     *ngFor="let year of yearValues">
-                    <a class="yearLink" mat-raised-button href="https://www.google.com/" target="_blank">{{ year.value }}</a>
+                    <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter">
+                        <a class="yearLink" mat-raised-button href="https://www.google.com/"
+                            target="_blank">{{ year.value }}</a>
+                    </div>
                 </div>
             </div>
         </mat-card>
     </div>
 
     <!-- launch data store in dataArray-->
-    <div class="launchBoard" fxLayout="row" fxLayoutGap="65px" fxLayoutAlign=" space-evenlycenter">
-        <mat-card fxLayout="column" class="inner-launch-item" *ngFor="let dataArray of rocketData">
-            <img src="{{ dataArray.links.mission_patch_small }}" />
-            <h4 class="launch-title no-margin pt-xs c-fit-width">
+    <div fxLayout="column" fxLayoutGap="65px" fxLayoutAlign="space-evenlycenter">
+        <div class="launchBoard" fxLayout="row" fxLayoutGap="65px" fxLayoutAlign="space-around center">
+            <mat-card fxLayout="column" class="inner-launch-item" *ngFor="let dataArray of rocketData">
+                <img src="{{ dataArray.links.mission_patch_small }}" />
+                <h4 class="launch-title no-margin pt-xs c-fit-width">
 
-                <!-- mission name & flight number-->
-                {{ dataArray.mission_name }} #{{ dataArray.flight_number }}
-            </h4>
+                    <!-- mission name & flight number-->
+                    {{ dataArray.mission_name }} #{{ dataArray.flight_number }}
+                </h4>
 
-            <!-- mission Ids-->
-            <h4 class="no-margin pt-xs c-fit-width commonText">Mission Ids:
-                <label class="forDynaimcData" *ngFor="let id of dataArray.mission_id">{{ id }}
-                </label>
-            </h4>
-            <div class="d-flex c-fit-width">
-
-                <!-- mission launch year-->
-                <h4 class="no-margin pt-xs c-fit-width commonText">Launch Year:
-                    <label class="forDynaimcData">
-                        {{ dataArray.launch_year }}
+                <!-- mission Ids-->
+                <h4 class="no-margin pt-xs c-fit-width commonText">Mission Ids:
+                    <label class="forDynaimcData" *ngFor="let id of dataArray.mission_id">{{ id }}
                     </label>
                 </h4>
-            </div>
+                <div class="d-flex c-fit-width">
 
-            <!-- mission launch success-->
-            <div class="d-flex c-fit-width">
-                <h4 class="no-margin pt-xs c-fit-width commonText">Successful Launch:
-                    <label class="forDynaimcData">
-                        {{ dataArray.launch_success }}
-                    </label>
-                </h4>
-            </div>
+                    <!-- mission launch year-->
+                    <h4 class="no-margin pt-xs c-fit-width commonText">Launch Year:
+                        <label class="forDynaimcData">
+                            {{ dataArray.launch_year }}
+                        </label>
+                    </h4>
+                </div>
 
-            <!-- mission landing success-->
-            <div class="d-flex c-fit-width">
-                <h4 class="no-margin pt-xs c-fit-width commonText">Successful Landing:
-                    <label class="forDynaimcData">
-                        {{ dataArray.rocket.first_stage.cores[0].land_success }}
-                    </label>
-                </h4>
-            </div>
-        </mat-card><br><br>
+                <!-- mission launch success-->
+                <div class="d-flex c-fit-width">
+                    <h4 class="no-margin pt-xs c-fit-width commonText">Successful Launch:
+                        <label class="forDynaimcData">
+                            {{ dataArray.launch_success }}
+                        </label>
+                    </h4>
+                </div>
+
+                <!-- mission landing success-->
+                <div class="d-flex c-fit-width">
+                    <h4 class="no-margin pt-xs c-fit-width commonText">Successful Landing:
+                        <label class="forDynaimcData">
+                            {{ dataArray.rocket.first_stage.cores[0].land_success }}
+                        </label>
+                    </h4>
+                </div>
+            </mat-card>
+            <div class="footer" fxLayoutAlign="center"><label class="developBy">developed by:</label>&nbsp;
+                {{ developerName }}<br> </div>
+        </div>
     </div>
 </div>
-<!-- </div> -->
