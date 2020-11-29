@@ -51,16 +51,32 @@
 .main-launch {
     margin-top: -2%;
     margin-left: -1%;
+    flex-flow: wrap;
 }
 
 .year {
-    margin-top: 18%;
+    // margin-top: 18%;
+    // background-color: white;
+    // color: black;
+    // display: flex;
+    // height: 84%;
+    // margin-left: 22%;
+    // margin-top: 2%;
+    // background-color: white;
+    // color: black;
+    // display: flex;
+    // height: 121%;
+    // margin-left: 10%;
+    // width: 76%;
+    // flex-flow: wrap;
+    margin-top: 2%;
     background-color: white;
     color: black;
     display: flex;
-    height: 27%;
-    margin-left: 22%;
-    flex-flow: row;
+    height: 123%;
+    margin-left: 10%;
+    width: 76%;
+    flex-flow: wrap;
   }
 
 // .yearConstantData{
@@ -73,7 +89,7 @@
 }
 
 .yearLink {
-    display: table-cell;
+    display: flex;
     width: 490px;
     color: black;
     background:#A9DFBF;
@@ -81,6 +97,7 @@
     cursor: pointer;
     height: 2.4em;
     border-radius: 0.3em;
+    margin-top: 8%;
   }
 
 .yearLink:focus {
@@ -97,13 +114,15 @@
 }
   
 .sub-header {
-    border-bottom: 1px solid;
+    border-bottom: 0px solid;
     justify-self: center;
     display: flex;
+    margin-top: -17%;
   }
 
 .filterDataMain {
-    margin-top: auto;
+    margin-top: 7%;
+    margin-left: 12%;
 }
 
 .footer {
@@ -119,9 +138,31 @@
 
 .launchUndrline {
     border-bottom:2px solid #DCDCDC;
+    font-weight: 500;
+    display: flex;
+}
+
+.launchUndrline1 {
+    border-bottom:2px solid #DCDCDC;
+    font-weight: 500;
+    display: flex;
+}
+
+.launchUndrline2 {
+    border-bottom:2px solid #DCDCDC;
+    font-weight: 500;
+    display: flex;
 }
 
 .filtertxt {
     font-size: large;
     font-weight: 600;
+}
+
+.yearWithFlex{
+    flex-flow: wrap;
+}
+
+.mainLaunch{
+    margin-top: 42%;
 }

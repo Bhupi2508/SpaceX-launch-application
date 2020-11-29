@@ -2,26 +2,53 @@
     <h1 class="main" fxLayoutAlign="start center">SpaceX Launch Programs</h1>
 </div>
 
-<div class="main-launch" fxLayout="row" fxLayoutAlign="center">
+<div class="main-launch" fxLayout="column" fxLayoutAlign="start stretch">
+    <!--Filter div-->
     <div class="filterMain">
-        <mat-card class="year">
-            <span class="filtertxt">Filters</span>
-            <div class="sub-header" fxLayoutAlign="space-around center"><label class="launchUndrline">Launch
-                    Year</label></div>
-            <div class="filterDataMain" fxLayout="column">
-                <div class="yearConstantData" fxLayout="column" fxLayoutAlign="space-evenlycenter"
-                    *ngFor="let year of yearValues">
-                    <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter">
-                        <a class="yearLink" mat-raised-button href="https://www.google.com/"
-                            target="_blank">{{ year.value }}</a>
+        <div>
+            <mat-card class="year">
+                <div><span class="filtertxt">Filters</span></div>
+                <div fxLayout="column">
+                    <div class="sub-header" fxLayoutAlign="space-around center"><label class="launchUndrline">Launch
+                            Year</label></div>
+                    <div class="filterDataMain" fxLayout="column">
+                        <div class="yearWithFlex" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter">
+                            <div class="yearConstantData" *ngFor="let year of yearValues">
+                                <a class="yearLink" mat-raised-button href="https://www.google.com/"
+                                    target="_blank">{{ year.value }}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </mat-card>
+                <div class="sub-header" fxLayoutAlign="space-around center"><label class="launchUndrline1">Successful
+                        Launch</label></div>
+                <div fxLayout="row">
+
+                    <div fxLayout="column" fxLayoutGap="40px" *ngFor="let launch of launchValues">
+                        <!-- <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="space-evenlycenter"> -->
+                        <a class="yearLink" mat-raised-button href="https://www.google.com/"
+                            target="_blank">{{ launch.value }}</a>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="sub-header" fxLayoutAlign="space-around center"><label class="launchUndrline2">Successful
+                        Landing</label></div>
+                <div fxLayout="row">
+                    <div class="yearConstantData" fxLayout="column" fxLayoutAlign="space-evenlycenter"
+                        *ngFor="let landing of landingValues">
+                        <!-- <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter"> -->
+                        <a class="yearLink" mat-raised-button href="https://www.google.com/"
+                            target="_blank">{{ landing.value }}</a>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </mat-card>
+        </div>
     </div>
 
+
     <!-- launch data store in dataArray-->
-    <div fxLayout="column" fxLayoutGap="65px" fxLayoutAlign="space-evenlycenter">
+    <div class="mainLaunch" fxLayout="column" fxLayoutGap="65px" fxLayoutAlign="space-evenlycenter">
         <div class="launchBoard" fxLayout="row" fxLayoutGap="65px" fxLayoutAlign="space-around center">
             <mat-card fxLayout="column" class="inner-launch-item" *ngFor="let dataArray of rocketData">
                 <img src="{{ dataArray.links.mission_patch_small }}" />
@@ -64,8 +91,11 @@
                     </h4>
                 </div>
             </mat-card>
-            <div class="footer" fxLayoutAlign="center"><label class="developBy">developed by:</label>&nbsp;
-                {{ developerName }}<br> </div>
         </div>
+    </div>
+
+    <!--Developer name-->
+    <div class="footer" fxLayoutAlign="center"><label class="developBy">developed by:</label>&nbsp;
+        {{ developerName }}<br>
     </div>
 </div>

@@ -13,19 +13,22 @@ Ensure local installation of following software/tools:
  - Install the Angular CLI
  - Create a new project
 
- ## version 0.0.2
+## version 0.0.2
  - Generate module and set as default for application
  - Install @nguniversal/express-engine for ssr
 
-  ## version 0.0.3
+## version 0.0.3
  - Set API url in environment.ts and call from services
  - Install ng add @angular/material
  - Send api response to the root component and render on html
 
-   ## version 0.0.4
+## version 0.0.4
  - Create interface for response launch data
  - Render the data on html using LaunchData interfaces
  - Create a constant file for get the values for Years, landing and launch
 
-    ## version 0.0.5
- - launch data html updated with footer
+## version 0.0.5
+ - launch data html file update with footer
+
+## version 0.0.6
+ - filter data html file update
