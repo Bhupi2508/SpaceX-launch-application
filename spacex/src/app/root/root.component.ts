@@ -37,8 +37,8 @@ export class RootComponent implements OnInit {
    */
   clickOnYear(yearSelected: any) {
     this.year = yearSelected
-    console.log("Click on year", this.year);
     this.homePage()
+    this.rootPage()
     this.queryParameter()
   }
 
@@ -47,10 +47,19 @@ export class RootComponent implements OnInit {
    */
   queryParameter() {
     this.route.queryParamMap.subscribe((params) => {
-      console.log("params =>>>>>>>>", params);
-      this.appliedYear = params.get('launch_year');
-      console.log("applied year", this.appliedYear);
+      this.appliedYear = params.get('year');
       this.homePage();
+    });
+  }
+
+  /**
+ * Navigate to the root page to play around with the filters.
+ */
+  rootPage() {
+    this.router.navigate(['/root'], {
+      queryParams: {
+        year: this.year,
+      },
     });
   }
 

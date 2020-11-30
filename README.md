@@ -36,3 +36,6 @@ Ensure local installation of following software/tools:
 ## version 0.0.7
  - Year filter updated with html page
  - service method update with year parameter
+
+## version 0.0.8
+ - get query parameter updated during click on filter year 
