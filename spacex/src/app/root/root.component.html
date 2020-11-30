@@ -2,10 +2,10 @@
     <h1 class="main" fxLayoutAlign="start center">SpaceX Launch Programs</h1>
 </div>
 
-<div class="main-launch" fxLayout="column" fxLayoutAlign="start stretch">
-    <!--Filter div-->
-    <div class="filterMain">
-        <div>
+<div fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="space-evenlycenter">
+    <div class="main-launch" fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="space-evenlycenter">
+        <!--Filter div-->
+        <div class="filterMain">
             <mat-card class="year">
                 <div><span class="filtertxt">Filters</span></div>
                 <div fxLayout="column">
@@ -14,42 +14,39 @@
                     <div class="filterDataMain" fxLayout="column">
                         <div class="yearWithFlex" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter">
                             <div class="yearConstantData" *ngFor="let year of yearValues">
-                                <a class="yearLink" mat-raised-button href="https://www.google.com/"
-                                    target="_blank">{{ year.value }}</a>
+                                <button class="yearLink" mat-raised-button
+                                    (click)="clickOnYear(year.value)">{{ year.value }}</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="sub-header" fxLayoutAlign="space-around center"><label class="launchUndrline1">Successful
+                <div class="sub-header1" fxLayoutAlign="space-around center"><label class="launchUndrline1">Successful
                         Launch</label></div>
                 <div fxLayout="row">
 
-                    <div fxLayout="column" fxLayoutGap="40px" *ngFor="let launch of launchValues">
+                    <div class="launchLanding" fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="space-between center"
+                        *ngFor="let launch of launchValues">
                         <!-- <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="space-evenlycenter"> -->
-                        <a class="yearLink" mat-raised-button href="https://www.google.com/"
-                            target="_blank">{{ launch.value }}</a>
+                        <button class="yearLink" mat-raised-button target="_blank">{{ launch.value }}</button>
                         <!-- </div> -->
                     </div>
                 </div>
-                <div class="sub-header" fxLayoutAlign="space-around center"><label class="launchUndrline2">Successful
+                <div class="sub-header1" fxLayoutAlign="space-around center"><label class="launchUndrline2">Successful
                         Landing</label></div>
                 <div fxLayout="row">
-                    <div class="yearConstantData" fxLayout="column" fxLayoutAlign="space-evenlycenter"
+                    <div class="launchLanding" fxLayout="column" fxLayoutAlign="space-evenlycenter"
                         *ngFor="let landing of landingValues">
                         <!-- <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter"> -->
-                        <a class="yearLink" mat-raised-button href="https://www.google.com/"
-                            target="_blank">{{ landing.value }}</a>
+                        <button class="yearLink" mat-raised-button target="_blank">{{ landing.value }}</button>
                         <!-- </div> -->
                     </div>
                 </div>
             </mat-card>
         </div>
-    </div>
 
-
-    <!-- launch data store in dataArray-->
-    <div class="mainLaunch" fxLayout="column" fxLayoutGap="65px" fxLayoutAlign="space-evenlycenter">
-        <div class="launchBoard" fxLayout="row" fxLayoutGap="65px" fxLayoutAlign="space-around center">
+        <!-- launch data store in dataArray-->
+        <!-- <div class="mainLaunch" fxLayout="column" fxLayoutGap="65px" fxLayoutAlign="space-evenlycenter"> -->
+        <div class="launchBoard mainLaunch" fxLayout="row" fxLayoutGap="55px" fxLayoutAlign="start center">
             <mat-card fxLayout="column" class="inner-launch-item" *ngFor="let dataArray of rocketData">
                 <img src="{{ dataArray.links.mission_patch_small }}" />
                 <h4 class="launch-title no-margin pt-xs c-fit-width">
@@ -93,6 +90,7 @@
             </mat-card>
         </div>
     </div>
+    <!-- </div> -->
 
     <!--Developer name-->
     <div class="footer" fxLayoutAlign="center"><label class="developBy">developed by:</label>&nbsp;

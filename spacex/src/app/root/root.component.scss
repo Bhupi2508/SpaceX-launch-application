@@ -69,13 +69,21 @@
     // margin-left: 10%;
     // width: 76%;
     // flex-flow: wrap;
-    margin-top: 2%;
+    // margin-top: 2%;
+    // background-color: white;
+    // color: black;
+    // display: flex;
+    // height: 120%;
+    // margin-left: 10%;
+    // width: 76%;
+    // flex-flow: wrap;
+        margin-top: 2%;
     background-color: white;
     color: black;
     display: flex;
-    height: 123%;
-    margin-left: 10%;
-    width: 76%;
+    height: 120%;
+    margin-left: 3%;
+    width: 13%;
     flex-flow: wrap;
   }
 
@@ -117,12 +125,25 @@
     border-bottom: 0px solid;
     justify-self: center;
     display: flex;
-    margin-top: -17%;
+    margin-top: -12%;
+  }
+
+.sub-header1 {
+    border-bottom: 0px solid;
+    justify-self: center;
+    display: flex;
+    margin-top: -12%;
+    margin-left: 17%;
   }
 
 .filterDataMain {
     margin-top: 7%;
     margin-left: 12%;
+}
+
+.launchLanding {
+    margin-right: -3%;
+    margin-left: 20%;
 }
 
 .footer {
@@ -164,5 +185,9 @@
 }
 
 .mainLaunch{
-    margin-top: 42%;
+    // margin-left: 14%;
+    // margin-top: -31%;
+    margin-left: 20%;
+    margin-top: -31%;
+    display: flex;
 }

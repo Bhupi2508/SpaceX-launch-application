@@ -32,3 +32,7 @@ Ensure local installation of following software/tools:
 
 ## version 0.0.6
  - filter data html file update
+
+## version 0.0.7
+ - Year filter updated with html page
+ - service method update with year parameter

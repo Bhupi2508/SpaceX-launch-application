@@ -12,8 +12,14 @@ export class ApiServicesService {
 
   private parentUrl = environment.parentUrl;
 
-  getMethod(limit: number) {
+  getMethod(year: string, limit: number) {
     let homeUrl = `${this.parentUrl}/launches?limit=${limit}`;
+
+    //if year is present
+    if (year) {
+      homeUrl = homeUrl + `&launch_year=${year}`;
+    }
+
     return this.http.get<LaunchData[]>(homeUrl)
   }
 
