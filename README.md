@@ -39,3 +39,7 @@ Ensure local installation of following software/tools:
 
 ## version 0.0.8
  - get query parameter updated during click on filter year 
+
+
+## version 0.0.9
+ - get query parameter updated during click on filter landing and launches value.

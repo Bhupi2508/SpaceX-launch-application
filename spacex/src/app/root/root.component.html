@@ -27,7 +27,8 @@
                     <div class="launchLanding" fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="space-between center"
                         *ngFor="let launch of launchValues">
                         <!-- <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="space-evenlycenter"> -->
-                        <button class="yearLink" mat-raised-button target="_blank">{{ launch.value }}</button>
+                        <button class="yearLink" mat-raised-button
+                            (click)="clickOnYear(launch.value)">{{ launch.value }}</button>
                         <!-- </div> -->
                     </div>
                 </div>
@@ -37,7 +38,8 @@
                     <div class="launchLanding" fxLayout="column" fxLayoutAlign="space-evenlycenter"
                         *ngFor="let landing of landingValues">
                         <!-- <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter"> -->
-                        <button class="yearLink" mat-raised-button target="_blank">{{ landing.value }}</button>
+                        <button class="yearLink" mat-raised-button
+                            (click)="clickOnYear(landing.value)">{{ landing.value }}</button>
                         <!-- </div> -->
                     </div>
                 </div>

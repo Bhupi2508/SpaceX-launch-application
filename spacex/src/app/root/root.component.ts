@@ -20,7 +20,11 @@ export class RootComponent implements OnInit {
   launchValues: any
   landingValues: any
   year: any
+  launch: any
+  landing: any
   appliedYear: any
+  isLanded: any
+  isLaunched: any
 
   ngOnInit(): void {
     this.getValues();
@@ -35,8 +39,10 @@ export class RootComponent implements OnInit {
   /**
    * year filter
    */
-  clickOnYear(yearSelected: any) {
-    this.year = yearSelected
+  clickOnYear(yearSelected: LaunchData,) {
+    this.year = yearSelected;
+    this.launch = yearSelected;
+    this.landing = yearSelected;
     this.homePage()
     this.rootPage()
     this.queryParameter()
@@ -48,6 +54,8 @@ export class RootComponent implements OnInit {
   queryParameter() {
     this.route.queryParamMap.subscribe((params) => {
       this.appliedYear = params.get('year');
+      this.isLanded = params.get('landing');
+      this.isLaunched = params.get('launch');
       this.homePage();
     });
   }
@@ -59,6 +67,8 @@ export class RootComponent implements OnInit {
     this.router.navigate(['/root'], {
       queryParams: {
         year: this.year,
+        launch: this.isLaunched,
+        landing: this.isLanded,
       },
     });
   }
@@ -67,7 +77,7 @@ export class RootComponent implements OnInit {
    * Call the homePage method for get the homepage data
    */
   homePage() {
-    this.service.getMethod(this.year, this.limit).subscribe((Data: LaunchData[]) => {
+    this.service.getMethod(this.year, this.launch, this.landing, this.limit).subscribe((Data: LaunchData[]) => {
       this.rocketData = Data;
     },
       error => {
