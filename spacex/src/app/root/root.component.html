@@ -15,7 +15,7 @@
                         <div class="yearWithFlex" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter">
                             <div class="yearConstantData" *ngFor="let year of yearValues">
                                 <button class="yearLink" mat-raised-button
-                                    (click)="clickOnYear(year.value)">{{ year.value }}</button>
+                                    (click)="clickOnYear('yearValues', year.value, 'appliedYear')">{{ year.value }}</button>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                         *ngFor="let launch of launchValues">
                         <!-- <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="space-evenlycenter"> -->
                         <button class="yearLink" mat-raised-button
-                            (click)="clickOnYear(launch.value)">{{ launch.value }}</button>
+                            (click)="clickOnYear('launchValues', launch.value, 'isLaunched' )">{{launch.value}}</button>
                         <!-- </div> -->
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         *ngFor="let landing of landingValues">
                         <!-- <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter"> -->
                         <button class="yearLink" mat-raised-button
-                            (click)="clickOnYear(landing.value)">{{ landing.value }}</button>
+                            (click)="clickOnYear('landingValues', landing.value, 'isLanding' )">{{landing.value}}</button>
                         <!-- </div> -->
                     </div>
                 </div>

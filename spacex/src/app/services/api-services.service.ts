@@ -22,12 +22,14 @@ export class ApiServicesService {
 
     //if launch filter is applicable
     if (launch) {
-      homeUrl = homeUrl + `&launch_success=${launch}`;
+      const launches = launch === 'Yes' ? true : false;
+      homeUrl = homeUrl + `&launch_success=${launches}`;
     }
 
     // if landing filter is applicable
     if (landing) {
-      homeUrl = homeUrl + `&land_success=${landing}`;
+      const landed = landing === 'Yes' ? true : false;
+      homeUrl = homeUrl + `&land_success=${landed}`;
     }
 
     return this.http.get<LaunchData[]>(homeUrl)

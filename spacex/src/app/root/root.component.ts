@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServicesService } from '../services/api-services.service';
 import { LaunchData } from '../../interfaces/launch-interfaces';
+import { Filters } from '../../interfaces/launch-interfaces';
 import { LAUNCH_VALUE, LANDING_VALUE, YEARS_VALUE } from '../../constantData/constantValues';
 
 @Component({
@@ -10,6 +11,7 @@ import { LAUNCH_VALUE, LANDING_VALUE, YEARS_VALUE } from '../../constantData/con
   styleUrls: ['./root.component.scss']
 })
 export class RootComponent implements OnInit {
+  [x: string]: any;
 
   constructor(private service: ApiServicesService, private route: ActivatedRoute, private router: Router) { }
 
@@ -25,6 +27,9 @@ export class RootComponent implements OnInit {
   appliedYear: any
   isLanded: any
   isLaunched: any
+  // yearValues: Array<Filters> = [];
+  // launchValues: Array<Filters> = [];
+  // landingValues: Array<Filters> = [];
 
   ngOnInit(): void {
     this.getValues();
@@ -39,13 +44,52 @@ export class RootComponent implements OnInit {
   /**
    * year filter
    */
-  clickOnYear(yearSelected: LaunchData,) {
-    this.year = yearSelected;
-    this.launch = yearSelected;
-    this.landing = yearSelected;
-    this.homePage()
+  clickOnYear(field: string, LaunchSelected: Filters, action: string) {
+    console.log("after clickOnUrl : ", field, "=> ", LaunchSelected, "=> ", action);
+
+    this.MappingFromClick(field, LaunchSelected);
+    console.log("after MappingFromClick : ", field, "=> ", LaunchSelected, "=> ", action);
+
+    this.genericFilter(action, LaunchSelected)
+    console.log("after genericFilter 1 : ", action, "=> ", LaunchSelected);
+
+    // this.year = LaunchSelected;
+    // this.launch = LaunchSelected;
+    // this.landing = LaunchSelected;
     this.rootPage()
-    this.queryParameter()
+    // this.queryParameter()
+  }
+
+
+  /**
+   * @param field mapped values
+   * @param Properties getting all the values
+   */
+  MappingFromClick(field: any, properties: any) {
+    this[field].map((property: { isSelected: boolean; value: any; year: number }) => {
+      console.log("Property : ", property);
+      console.log("Properties ===>> : ", properties);
+      property.isSelected =
+        property.value === properties.value ? !property.isSelected : false;
+    });
+  }
+
+  /**
+  * Updating the filter which is been sent from child component.
+  * Navigate to a new page.
+  * @param payload contains which property to update and the selection property.
+  */
+  genericFilter(action: string, LaunchSelected: Filters) {
+    console.log("after genericFilter 2 ", action, "=> ", LaunchSelected);
+
+    this.action = LaunchSelected
+      ? LaunchSelected
+      : undefined;
+
+    console.log("action ", this.action);
+
+    this.rootPage();
+    // this.homePage();
   }
 
   /**
@@ -53,9 +97,17 @@ export class RootComponent implements OnInit {
    */
   queryParameter() {
     this.route.queryParamMap.subscribe((params) => {
+      console.log("year : ", this.params);
+
       this.appliedYear = params.get('year');
+      console.log("year : ", this.appliedYear);
+
       this.isLanded = params.get('landing');
+      console.log("landing : ", this.isLanded);
+
       this.isLaunched = params.get('launch');
+      console.log("launch : ", this.isLaunched);
+
       this.homePage();
     });
   }
@@ -67,8 +119,8 @@ export class RootComponent implements OnInit {
     this.router.navigate(['/root'], {
       queryParams: {
         year: this.year,
-        launch: this.isLaunched,
-        landing: this.isLanded,
+        launch: this.launch,
+        landing: this.landing,
       },
     });
   }

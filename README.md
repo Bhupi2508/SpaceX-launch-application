@@ -43,3 +43,6 @@ Ensure local installation of following software/tools:
 
 ## version 0.0.9
  - get query parameter updated during click on filter landing and launches value.
+
+## version 0.0.10
+ - root.component.tsfile updated for filter.
