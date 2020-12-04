@@ -27,37 +27,58 @@ export class RootComponent implements OnInit {
   appliedYear: any
   isLanded: any
   isLaunched: any
-  // yearValues: Array<Filters> = [];
-  // launchValues: Array<Filters> = [];
-  // landingValues: Array<Filters> = [];
 
   ngOnInit(): void {
     this.getValues();
     this.queryParameter()
   }
 
+
   /**
-   * set default limit 8
+   * Get the query params from url
+   */
+  queryParameter() {
+    this.route.queryParamMap.subscribe((params) => {
+      this.appliedYear = params.get('year');
+      this.isLanded = params.get('landing');
+      this.isLaunched = params.get('launch');
+
+      // Service call
+      this.homePage();
+    });
+  }
+
+  /**
+   * set default limit 20
    */
   limit: number = 20;
 
   /**
-   * year filter
+   * @param {SelectedFilter} : get the value after click on event for year filter 
    */
-  clickOnYear(field: string, LaunchSelected: Filters, action: string) {
-    console.log("after clickOnUrl : ", field, "=> ", LaunchSelected, "=> ", action);
-
-    this.MappingFromClick(field, LaunchSelected);
-    console.log("after MappingFromClick : ", field, "=> ", LaunchSelected, "=> ", action);
-
-    this.genericFilter(action, LaunchSelected)
-    console.log("after genericFilter 1 : ", action, "=> ", LaunchSelected);
-
-    // this.year = LaunchSelected;
-    // this.launch = LaunchSelected;
-    // this.landing = LaunchSelected;
+  clickOnYear(SelectedFilter: Filters) {
+    this.appliedYear = SelectedFilter.value;
     this.rootPage()
-    // this.queryParameter()
+  }
+
+  /**
+   * @param {field} : get the properties of click event from constant data
+   * @param {SelectedFilter} : get the value after click on event for launch filter
+   */
+  clickOnLaunch(field: string, SelectedFilter: Filters) {
+    this.MappingFromClick(field, SelectedFilter);
+    this.isLaunched = SelectedFilter.value;
+    this.rootPage();
+  }
+
+  /**
+   *@param {field} : get the properties of click event from constant data
+   * @param {SelectedFilter} : get the value after click on event for land filter
+   */
+  clickOnLand(field: string, SelectedFilter: Filters) {
+    this.MappingFromClick(field, SelectedFilter);
+    this.isLanding = SelectedFilter.value;
+    this.rootPage()
   }
 
 
@@ -67,69 +88,31 @@ export class RootComponent implements OnInit {
    */
   MappingFromClick(field: any, properties: any) {
     this[field].map((property: { isSelected: boolean; value: any; year: number }) => {
-      console.log("Property : ", property);
-      console.log("Properties ===>> : ", properties);
-      property.isSelected =
-        property.value === properties.value ? !property.isSelected : false;
+
+      // condition based on click event
+      property.isSelected = property.value === properties.value ? !property.value : false;
     });
+
   }
 
   /**
-  * Updating the filter which is been sent from child component.
-  * Navigate to a new page.
-  * @param payload contains which property to update and the selection property.
-  */
-  genericFilter(action: string, LaunchSelected: Filters) {
-    console.log("after genericFilter 2 ", action, "=> ", LaunchSelected);
-
-    this.action = LaunchSelected
-      ? LaunchSelected
-      : undefined;
-
-    console.log("action ", this.action);
-
-    this.rootPage();
-    // this.homePage();
-  }
-
-  /**
-   * Get the query params from url
+   * Navigate to the root page to play around with the filters.
    */
-  queryParameter() {
-    this.route.queryParamMap.subscribe((params) => {
-      console.log("year : ", this.params);
-
-      this.appliedYear = params.get('year');
-      console.log("year : ", this.appliedYear);
-
-      this.isLanded = params.get('landing');
-      console.log("landing : ", this.isLanded);
-
-      this.isLaunched = params.get('launch');
-      console.log("launch : ", this.isLaunched);
-
-      this.homePage();
-    });
-  }
-
-  /**
- * Navigate to the root page to play around with the filters.
- */
   rootPage() {
     this.router.navigate(['/root'], {
       queryParams: {
-        year: this.year,
-        launch: this.launch,
-        landing: this.landing,
+        year: this.appliedYear,
+        launch: this.isLaunched,
+        landing: this.isLanding,
       },
     });
   }
 
   /**
-   * Call the homePage method for get the homepage data
+   * Call the homePage method for get the data
    */
   homePage() {
-    this.service.getMethod(this.year, this.launch, this.landing, this.limit).subscribe((Data: LaunchData[]) => {
+    this.service.getMethod(this.appliedYear, this.isLaunched, this.isLanding, this.limit).subscribe((Data: LaunchData[]) => {
       this.rocketData = Data;
     },
       error => {
@@ -138,6 +121,7 @@ export class RootComponent implements OnInit {
     )
   }
 
+  // get all the filter constant data
   getValues() {
     this.launchValues = LAUNCH_VALUE;
     this.landingValues = LANDING_VALUE;
