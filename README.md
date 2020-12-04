@@ -58,3 +58,6 @@ Ensure local installation of following software/tools:
 
 ## version 0.0.11
  - Filter are working properly with query paramater on url
+
+## version 0.0.11
+ - window add as global
