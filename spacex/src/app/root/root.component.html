@@ -14,7 +14,7 @@
                     <div class="filterDataMain" fxLayout="column">
                         <div class="yearWithFlex" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter">
                             <div class="yearConstantData" *ngFor="let year of yearValues">
-                                <button class="yearLink" mat-raised-button
+                                <button class="yearLink" mat-raised-button [class.afterClick]='appliedYear'
                                     (click)="clickOnYear( year )">{{ year.value }}</button>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                     <div class="launchLanding" fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="space-between center"
                         *ngFor="let launch of launchValues">
                         <!-- <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="space-evenlycenter"> -->
-                        <button class="yearLink" mat-raised-button
+                        <button id="landId" class="yearLink" mat-raised-button [class.afterClick]='isLaunched'
                             (click)="clickOnLaunch('launchValues', launch )">{{launch.value}}</button>
                         <!-- </div> -->
                     </div>
@@ -38,7 +38,7 @@
                     <div class="launchLanding" fxLayout="column" fxLayoutAlign="space-evenlycenter"
                         *ngFor="let landing of landingValues">
                         <!-- <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-evenlycenter"> -->
-                        <button class="yearLink" mat-raised-button
+                        <button class="yearLink" mat-raised-button [class.afterClick]='isLanded'
                             (click)="clickOnLand('landingValues', landing )">{{landing.value}}</button>
                         <!-- </div> -->
                     </div>

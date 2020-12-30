@@ -42,6 +42,12 @@ export class RootComponent implements OnInit {
       this.appliedYear = params.get('year');
       this.isLanded = params.get('landing');
       this.isLaunched = params.get('launch');
+      let landClass = document.getElementById('landId')?.classList;
+      if (this.appliedYear) {
+        console.log("1 ", this.appliedYear);
+
+      }
+
 
       // Service call
       this.homePage();
@@ -57,7 +63,11 @@ export class RootComponent implements OnInit {
    * @param {SelectedFilter} : get the value after click on event for year filter 
    */
   clickOnYear(SelectedFilter: Filters) {
-    this.appliedYear = SelectedFilter.value;
+    if (this.appliedYear === SelectedFilter.value) {
+      delete this.appliedYear
+    } else {
+      this.appliedYear = SelectedFilter.value;
+    }
     this.rootPage()
   }
 
@@ -67,7 +77,11 @@ export class RootComponent implements OnInit {
    */
   clickOnLaunch(field: string, SelectedFilter: Filters) {
     this.MappingFromClick(field, SelectedFilter);
-    this.isLaunched = SelectedFilter.value;
+    if (this.isLaunched === SelectedFilter.value) {
+      delete this.isLaunched
+    } else {
+      this.isLaunched = SelectedFilter.value;
+    }
     this.rootPage();
   }
 
@@ -77,7 +91,11 @@ export class RootComponent implements OnInit {
    */
   clickOnLand(field: string, SelectedFilter: Filters) {
     this.MappingFromClick(field, SelectedFilter);
-    this.isLanding = SelectedFilter.value;
+    if (this.isLanded === SelectedFilter.value) {
+      delete this.isLanding
+    } else {
+      this.isLanding = SelectedFilter.value;
+    }
     this.rootPage()
   }
 
