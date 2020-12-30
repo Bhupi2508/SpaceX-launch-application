@@ -42,13 +42,7 @@ export class RootComponent implements OnInit {
       this.appliedYear = params.get('year');
       this.isLanded = params.get('landing');
       this.isLaunched = params.get('launch');
-      let landClass = document.getElementById('landId')?.classList;
-      if (this.appliedYear) {
-        console.log("1 ", this.appliedYear);
-
-      }
-
-
+      
       // Service call
       this.homePage();
     });
